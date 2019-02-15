@@ -1,0 +1,21 @@
+
+<form #noteForm="ngForm" fxLayout="column wrap" fxLayoutGap="0.5%">
+    <mat-form-field>
+      <input matInput placeholder="Note Text" required [(ngModel)]="item.title" name="title" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select placeholder="Note Color" [(ngModel)]="item.color" name="color" [compareWith]="compareOptions" required>
+          <mat-option *ngFor="let color of colors" [value]="color">{{color.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <div class="button-container">
+        <div *ngIf="item.id else creating">
+          <button mat-raised-button type="submit" color="primary" (click)="onSubmit()" [disabled]="!noteForm.valid || !(noteForm.touched || noteForm.dirty)">Update Note</button>
+        </div>
+    </div>
+    <ng-template #creating>
+        <button mat-raised-button type="submit" color="primary" (click)="onSubmit()" [disabled]="!noteForm.valid || !(noteForm.touched || noteForm.dirty)">Add Note</button>
+    </ng-template>
+</form>

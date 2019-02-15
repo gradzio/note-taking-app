@@ -1,0 +1,81 @@
+$test: #d26969;
+$card-background-color: #f3f3f3;
+$light-grey: #fcfcfc;
+$grey: #cfcfcf;
+$text-color: #7a7a7a;
+$border: 1px solid;
+$border-top: $border #dbdbdb;
+$border-bottom: $border #f7f7f7;
+$content-padding: 0 10px 0 15px;
+$content-margin: 0;
+$size-1: 20;
+$size-2: $size-1 * 0.75;
+$line-height-2: $size-2 * 1.33;
+$size-3: $size-1 * 0.55;
+$left-border-size: 8;
+$content-lines: 3;
+
+.mat-card {
+    color: $text-color;
+    margin: 10px;
+    text-shadow: 1px 1px #fff;
+    padding: 0 0 0 $left-border-size + px;
+    .mat-card-header {
+        margin: $content-margin;
+        padding: 10px 10px 0 15px;
+        line-height: ($size-1 * 2) + px;
+        background-color: $card-background-color;
+        ::ng-deep .mat-card-header-text {
+            margin-left: 0;
+        }
+        .mat-card-title {
+            font-size: $size-1 + px;
+            font-weight: 400;
+            text-shadow: none;
+            margin: 0;
+        }  
+        .mat-stroked-button.mat-icon-button {
+            border-radius: 5px;
+            margin: 0 2px;
+            background: $light-grey;
+        }
+    }
+    .mat-card-content {
+        margin: $content-margin;
+        padding: $content-padding;
+        background-color: $card-background-color;
+        border-bottom: $border-top;
+        .mat-card-content-text {
+            padding: $size-2 + px 0;
+            .scrollable {
+                font-size: $size-2 + px;
+                line-height: $line-height-2 + px;
+                height: $content-lines * $line-height-2 + px;
+                overflow-x:hidden;
+                overflow-y:scroll; // manage scrollbar content overflow settings
+                padding-right: 15px;
+                word-break: break-word;
+                &::-webkit-scrollbar {
+                    width:10px; // manage scrollbar width here
+                }
+                &::-webkit-scrollbar * {
+                    background:transparent; // manage scrollbar background color here
+                }
+                &::-webkit-scrollbar-thumb {
+                    background: $grey !important; // manage scrollbar thumb background color here
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+    .mat-card-footer {
+        margin: $content-margin;
+        padding: $content-padding;
+        background-color: $card-background-color;
+        border-top: $border-bottom;
+        .mat-card-footer-text {
+            font-size: $size-3 + px;
+            padding: $size-3 + px 0;
+        }
+    }
+}
