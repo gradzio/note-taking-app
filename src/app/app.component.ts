@@ -15,9 +15,7 @@ export class AppComponent {
 
   currentNote = this.nullNote;
 
-  constructor(private repository: Repository) {
-    this.repository.add(new Note(1, 'Less text here. Less text here. Less text here. Less text here. Less text here. Less text here. Less text here. Less text here. Less text here. Less text here. Less text here. Less text here. v Less text here. Less text here.', new Color('Red', '#ff6962')));
-  }
+  constructor(private repository: Repository) {}
 
   get nullNote(): NoteInterface {
     return {id: null, title: null, color: null};

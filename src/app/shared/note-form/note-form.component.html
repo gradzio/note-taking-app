@@ -1,5 +1,5 @@
 
-<form #noteForm="ngForm" fxLayout="column wrap" fxLayoutGap="0.5%">
+<form *ngIf="item" #noteForm="ngForm" fxLayout="column wrap" fxLayoutGap="0.5%">
     <mat-form-field>
       <input matInput placeholder="Note Text" required [(ngModel)]="item.title" name="title" required>
     </mat-form-field>

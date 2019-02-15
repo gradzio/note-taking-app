@@ -1,6 +1,6 @@
-<mat-card [style.background-color]="item.color.rgb">
+<mat-card [style.background-color]="item?.color.rgb">
   <mat-card-header>
-      <mat-card-title [style.color]="item.color.rgb">Note {{item?.id}}</mat-card-title>
+      <mat-card-title [style.color]="item?.color.rgb">Note {{item?.id}}</mat-card-title>
       <span fxFlex></span>
       <button *ngIf="mouseEntered" mat-icon-button mat-stroked-button (click)="onEditClicked(item)"><mat-icon>edit</mat-icon></button>
       <button *ngIf="mouseEntered" mat-icon-button mat-stroked-button (click)="onDeleteClicked(item)"><mat-icon>delete</mat-icon></button>
@@ -8,13 +8,13 @@
   <mat-card-content>
     <div class="mat-card-content-text">
       <div class="scrollable">
-          {{item.title}}
+          {{item?.title}}
       </div>
     </div>
   </mat-card-content>
   <mat-card-footer>
     <div class="mat-card-footer-text">
-      {{item.created | date:'MMMM d, h:mm a'}}
+      {{item?.created | date:'MMMM d, h:mm a'}}
     </div>
   </mat-card-footer>
 </mat-card>

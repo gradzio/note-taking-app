@@ -15,20 +15,20 @@ describe('NoteFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NoteFormComponent ],
-      imports: [
-        BrowserAnimationsModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MaterialModule
-      ]
-    })
-    .compileComponents();
+      declarations: [ NoteFormComponent, ComponentWithNoteForm ],
+        imports: [
+          BrowserAnimationsModule,
+          FormsModule,
+          ReactiveFormsModule,
+          MaterialModule
+        ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(NoteFormComponent);
     component = fixture.componentInstance;
+    component.item = new Note(1, 'title', new Color('colorName', '#fff'));
     fixture.detectChanges();
   });
 
@@ -38,11 +38,6 @@ describe('NoteFormComponent', () => {
 
   it('should contain colors', () => {
     expect(component.colors.length).toBeGreaterThan(0);
-  });
-
-  it('should not have model by default', () => {
-    expect(component.item).toBeTruthy();
-    expect(component.item.id).toBeFalsy();
   });
 
   it('should display input with placeholder', () => {
@@ -63,26 +58,13 @@ describe('NoteFormComponent', () => {
     expect(selectOptionsDebugElements.length).toEqual(component.colors.length);
   });
 
-  it('should display button with label', () => {
+  it('should display update button with label', () => {
     let buttonDebugElement = fixture.debugElement.query(By.css('button'));
 
     expect(buttonDebugElement.nativeElement.classList.contains('mat-primary')).toBe(true);
-    expect(buttonDebugElement.nativeElement.textContent.trim()).toEqual('Add Note');
+    expect(buttonDebugElement.nativeElement.textContent.trim()).toEqual('Update Note');
   });
-});
-
-describe('NoteFormComponent', () => {
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ NoteFormComponent, ComponentWithNoteForm ],
-        imports: [
-          BrowserAnimationsModule,
-          FormsModule,
-          ReactiveFormsModule,
-          MaterialModule
-        ]
-    }).compileComponents();
-  }));
+  
   it('should inject note', () => {
     const withItemFixture = TestBed.createComponent(ComponentWithNoteForm);
     const withItemNoteForm = withItemFixture.componentInstance.noteForm;

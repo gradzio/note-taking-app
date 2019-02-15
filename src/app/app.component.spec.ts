@@ -5,6 +5,7 @@ import { Repository } from './repository';
 import { NoteFormComponent } from './shared/note-form/note-form.component';
 import { MaterialModule } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NoteCardComponent } from './shared/note-card/note-card.component';
 
 describe('AppComponent', () => {
   let fixture, app;
@@ -12,7 +13,8 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        NoteFormComponent
+        NoteFormComponent,
+        NoteCardComponent
       ],
       imports: [
         MaterialModule,
